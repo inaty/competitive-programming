@@ -1,31 +1,11 @@
-import itertools
-
-
-'''
-A - Five Antennas
-https://atcoder.jp/contests/abc123/tasks/abc123_a
-'''
+"""
+A - Buttons
+https://atcoder.jp/contests/abc124/tasks/abc124_a
+"""
 if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-    c = int(input())
-    d = int(input())
-    e = int(input())
-    k = int(input())
-
-    position = [a, b, c, d, e]
-    test_cases = list(itertools.combinations(position, 2))
-
-    is_all_communication_possible = True
-
-    for e in test_cases:
-        position1 = e[0]
-        position2 = e[1]
-
-        if position2 - position1 > k:
-            is_all_communication_possible = False
-
-    if is_all_communication_possible:
-        print("Yay!")
-    else:
-        print(":(")
+    input_list = list(map(int, input().split()))
+    a = input_list[0]
+    b = input_list[1]
+    button_suspects = sorted([a, a-1, b, b-1], reverse=True)
+    answer = button_suspects[0] + button_suspects[1]
+    print(answer)
