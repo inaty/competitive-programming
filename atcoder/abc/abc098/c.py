@@ -29,7 +29,7 @@ if __name__ == '__main__':
         else:
             sum_accum_right[i+1] = sum_accum_left[i]
 
-    
+
 
 
     print(answer)
