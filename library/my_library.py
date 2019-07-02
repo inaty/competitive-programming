@@ -15,3 +15,11 @@ if __name__ == '__main__':
 
     print('8を3で割ってき上げた数')
     print(round_up(8, 3))
+
+
+    # bit全探索
+    for i in range(2**3):
+        print(i)
+        for j in range(3):
+            print((i >> j) & 1)
+        print("-----------------")
