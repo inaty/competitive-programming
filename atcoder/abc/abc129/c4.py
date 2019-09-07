@@ -1,10 +1,6 @@
 if __name__ == '__main__':
    n, m = map(int,input().split())
    a = set([int(input()) for i in range(m)])
-   broken = [False] * (n+1)
-   for i in range(n+1):
-      if i in a:
-         broken[i] = True
 
    MOD = 1000000007
 
@@ -16,11 +12,11 @@ if __name__ == '__main__':
       dp[1] = 1
 
    for i in range(2,n+1):
-      if broken[i-1] and broken[i-2]:
+      if (i-1 in a) and (i-2 in a):
          dp[i] = 0
-      elif broken[i-1]:
+      elif i-1 in a:
          dp[i] = dp[i-2] % MOD
-      elif broken[i-2]:
+      elif i-2 in a:
          dp[i] = dp[i-1] % MOD
       else:
          dp[i] = (dp[i-1] + dp[i-2]) % MOD
