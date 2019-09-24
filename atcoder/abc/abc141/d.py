@@ -1,15 +1,20 @@
+import heapq
+
+
 if __name__ == '__main__':
-    n,m = map(int, input().split())
-    a_list = list(map(int, input().split()))
-    a_list = sorted(a_list, reverse=True)
+    n, m = map(int, input().split())
+    a = list(map(int, input().split()))
+    q = []
+    for x in a:
+        heapq.heappush(q, -x)
 
-    search_range = 1
-    while m > 0:
-        max_index = a_list[0:search_range].index(max(a_list[0:search_range]))
-        a_list[max_index] = a_list[max_index] // 2
-        m -= 1
-        search_range += 1
+    for i in range(m):
+        x = heapq.heappop(q)
+        x /= 2
+        heapq.heappush(q,x)
 
-    answer = sum(a_list)
+    answer = 0
+    for x in q:
+        answer += int(-x//1)
     print(answer)
 
