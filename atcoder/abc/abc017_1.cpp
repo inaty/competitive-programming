@@ -4,13 +4,11 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> l(n), r(n);
-    rep(i, n) cin >> l.at(i) >> r.at(i);
+    vector<int> s(3), e(3);
+    rep(i, 3) cin >> s.at(i) >> e.at(i);
 
     int answer = 0;
-    rep(i, n) answer += r.at(i) - l.at(i) + 1;
+    rep(i, 3) answer += s.at(i) * e.at(i) / 10;
 
     cout << answer << endl;
 }

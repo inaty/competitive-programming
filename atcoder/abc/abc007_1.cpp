@@ -6,5 +6,5 @@ int main()
 {
     int n;
     cin >> n;
-    cout << to_string(n - 1) << endl;
+    cout << n - 1 << endl;
 }
