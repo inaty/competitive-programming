@@ -4,8 +4,7 @@ using namespace std;
 
 int main()
 {
-    int n, a;
-    cin >> n;
-    cin >> a;
-    cout << pow(n, 2) - a << endl;
+    int a, p;
+    cin >> a >> p;
+    cout << (int)floor((a * 3 + p) / 2.0) << endl;
 }

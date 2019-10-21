@@ -4,8 +4,7 @@ using namespace std;
 
 int main()
 {
-    int n, a;
-    cin >> n;
-    cin >> a;
-    cout << pow(n, 2) - a << endl;
+    int x;
+    cin >> x;
+    cout << round(pow(x, 1 / 4.0)) << endl;
 }

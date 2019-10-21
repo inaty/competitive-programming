@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-    int n, a;
+    int n;
     cin >> n;
-    cin >> a;
-    cout << pow(n, 2) - a << endl;
+
+    cout << n * 800 - ((int)floor(n / 15)) * 200 << endl;
 }

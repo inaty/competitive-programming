@@ -4,8 +4,9 @@ using namespace std;
 
 int main()
 {
-    int n, a;
+    int n;
     cin >> n;
-    cin >> a;
-    cout << pow(n, 2) - a << endl;
+    cout << 1;
+    rep(i, n - 1) cout << 0;
+    cout << 7;
 }

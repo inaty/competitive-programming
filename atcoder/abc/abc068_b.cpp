@@ -4,8 +4,13 @@ using namespace std;
 
 int main()
 {
-    int n, a;
+    int n;
     cin >> n;
-    cin >> a;
-    cout << pow(n, 2) - a << endl;
+    int answer = 1;
+    while (n > 1)
+    {
+        n /= 2;
+        answer *= 2;
+    }
+    cout << answer << endl;
 }
