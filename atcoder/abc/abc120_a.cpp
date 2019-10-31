@@ -4,7 +4,8 @@ using namespace std;
 
 int main()
 {
-    int a, b;
-    cin >> a >> b;
-    cout << (int)(a + b + 2 - 1) / 2 << endl;
+    int a, b, c;
+    cin >> a >> b >> c;
+
+    cout << min(c, (int)(b / a)) << endl;
 }

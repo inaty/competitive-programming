@@ -6,5 +6,5 @@ int main()
 {
     int a, b;
     cin >> a >> b;
-    cout << (int)(a + b + 2 - 1) / 2 << endl;
+    cout << (int)(b + a - 1) / a << endl;
 }

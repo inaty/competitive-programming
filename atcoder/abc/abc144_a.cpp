@@ -6,5 +6,13 @@ int main()
 {
     int a, b;
     cin >> a >> b;
-    cout << (int)(a + b + 2 - 1) / 2 << endl;
+
+    if ((a <= 9) && (b <= 9))
+    {
+        cout << a * b << endl;
+    }
+    else
+    {
+        cout << -1 << endl;
+    }
 }
