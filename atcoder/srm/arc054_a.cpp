@@ -7,31 +7,26 @@ int main()
     double l, x, y, s, d;
     cin >> l >> x >> y >> s >> d;
 
-    cout << fixed;
-    if (d == s)
+    double R, L;
+    if (s <= d)
     {
-        cout << 0 << endl;
-    }
-    else if (d < s)
-    {
-        if (y - x > 0)
-        {
-            cout << setprecision(10) << min((s - d) / (y - x), (l - s + d) / (x + y)) << endl;
-        }
-        else
-        {
-            cout << setprecision(10) << (l - s + d) / (x + y) << endl;
-        }
+        R = d - s;
+        L = l - R;
     }
     else
     {
-        if (y - x > 0)
-        {
-            cout << setprecision(10) << min((d - s) / (y - x), (l - d + s) / (x + y)) << endl;
-        }
-        else
-        {
-            cout << setprecision(10) << (l - d + s) / (x + y) << endl;
-        }
+        L = s - d;
+        R = l - L;
+    }
+
+    if (x >= y)
+    {
+        double answer = R / (x + y);
+        cout << std::fixed << setprecision(10) << answer << endl;
+    }
+    else
+    {
+        double answer = min(R / (x + y), L / (y - x));
+        cout << std::fixed << setprecision(10) << answer << endl;
     }
 }
