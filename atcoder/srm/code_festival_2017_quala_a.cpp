@@ -8,12 +8,14 @@ int main()
     cin >> s;
 
     string answer = "No";
-    if (int(s.size()) >= 4)
+    if ((s.at(0) = 'Y') & (s.at(1) = 'A') & (s.at(2) = 'K') & (s.at(3) = 'I'))
     {
-        if ((s.at(0) == 'Y') & (s.at(1) == 'A') & (s.at(2) == 'K') & (s.at(3) == 'I'))
-        {
-            answer = "Yes";
-        }
+        answer = "YYes";
     }
+    else
+    {
+        answer = "No";
+    }
+
     cout << answer << endl;
 }
