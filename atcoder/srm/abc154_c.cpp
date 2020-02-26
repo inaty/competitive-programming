@@ -29,20 +29,21 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> l(n);
-    rep(i, n) cin >> l.at(i);
+    vector<int> a(n);
+    rep(i, n) cin >> a.at(i);
 
-    sort(l.begin(), l.end());
-
-    int answer = 0;
-    for (int i = 0; i < n; i++)
+    set<int> st;
+    rep(i, n)
     {
-        for (int ii = i + 1; ii < n; ii++)
-        {
-            int iii_max = lower_bound(l.begin(), l.end(), l.at(i) + l.at(ii)) - l.begin();
-            answer += max(0, iii_max - (ii + 1));
-        }
+        st.insert(a.at(i));
     }
 
-    cout << answer << endl;
+    if (int(st.size()) == n)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 }

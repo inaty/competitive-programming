@@ -8,8 +8,16 @@ const ll MOD=1e9+7;
 const long long INF = 1LL<<60;
 
 int main() {
-    int a, b, x;
-    cin >> a >> b >> x;
+    string s, t;
+    cin >> s >> t;
+    int a, b;
+    cin >> a >> b;
+    string u;
+    cin >> u;
 
-    
+    if (s==u){
+        cout << a-1 << " " << b << endl;
+    }else{
+        cout << a << " " << b-1 << endl;
+    }
 }

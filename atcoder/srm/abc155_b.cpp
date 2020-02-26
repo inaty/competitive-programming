@@ -29,20 +29,26 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> l(n);
-    rep(i, n) cin >> l.at(i);
+    vector<int> a(n);
+    rep(i, n) cin >> a.at(i);
 
-    sort(l.begin(), l.end());
-
-    int answer = 0;
-    for (int i = 0; i < n; i++)
+    string answer = "APPROVED";
+    rep(i, n)
     {
-        for (int ii = i + 1; ii < n; ii++)
+        if (a.at(i) % 2 == 0)
         {
-            int iii_max = lower_bound(l.begin(), l.end(), l.at(i) + l.at(ii)) - l.begin();
-            answer += max(0, iii_max - (ii + 1));
+            if (a.at(i) % 3 == 0 || a.at(i) % 5 == 0)
+            {
+                continue;
+            }
+            else
+            {
+                answer = "DENIED";
+                cout << answer << endl;
+                return 0;
+            }
         }
     }
-
     cout << answer << endl;
+    return 0;
 }

@@ -27,22 +27,29 @@ const long long INF = 1LL << 60;
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> l(n);
-    rep(i, n) cin >> l.at(i);
+    vector<vector<int>> dxdy = {{1, 1}, {1, 0}, {0, 1}};
 
-    sort(l.begin(), l.end());
-
-    int answer = 0;
-    for (int i = 0; i < n; i++)
+    int h, w;
+    cin >> h >> w;
+    vector<string> a(h + 2, "");
+    for (int i = 0; i < h + 2; i++)
     {
-        for (int ii = i + 1; ii < n; ii++)
+        for (int j = 0; j < w + 2; j++)
         {
-            int iii_max = lower_bound(l.begin(), l.end(), l.at(i) + l.at(ii)) - l.begin();
-            answer += max(0, iii_max - (ii + 1));
+            a.at(i) += ".";
         }
     }
+    rep(i, h)
+    {
+        string tmp;
+        cin >> tmp;
+        tmp = '.' + tmp + '.';
+        a.at(i + 1) = tmp;
+    }
+    // rep(i, h + 2)
+    // {
+    //     cout << a.at(i) << endl;
+    // }
 
-    cout << answer << endl;
+    
 }

@@ -29,19 +29,22 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> l(n);
-    rep(i, n) cin >> l.at(i);
+    vector<int> a(n), b(n), c(n), mb(n);
+    rep(i, n) cin >> a.at(i);
+    rep(i, n) cin >> b.at(i);
+    rep(i, n) cin >> c.at(i);
+    rep(i, n) mb.at(i) = -b.at(i);
 
-    sort(l.begin(), l.end());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    sort(c.begin(), c.end());
 
-    int answer = 0;
-    for (int i = 0; i < n; i++)
+    ll answer = 0;
+    for (int bi = 0; bi < n; bi++)
     {
-        for (int ii = i + 1; ii < n; ii++)
-        {
-            int iii_max = lower_bound(l.begin(), l.end(), l.at(i) + l.at(ii)) - l.begin();
-            answer += max(0, iii_max - (ii + 1));
-        }
+        ll ai_max = lower_bound(a.begin(), a.end(), b.at(bi)) - a.begin();
+        ll ci_min = c.end() - upper_bound(c.begin(), c.end(), b.at(bi));
+        answer += ai_max * ci_min;
     }
 
     cout << answer << endl;

@@ -29,19 +29,19 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> l(n);
-    rep(i, n) cin >> l.at(i);
+    vector<int> a(3 * n);
+    rep(i, 3 * n) cin >> a.at(i);
 
-    sort(l.begin(), l.end());
+    sort(a.begin(), a.end(), greater<int>());
 
-    int answer = 0;
-    for (int i = 0; i < n; i++)
+    ll answer = 0;
+    ll count = 1;
+    for (int i = 1; i < 3 * n; i += 2)
     {
-        for (int ii = i + 1; ii < n; ii++)
-        {
-            int iii_max = lower_bound(l.begin(), l.end(), l.at(i) + l.at(ii)) - l.begin();
-            answer += max(0, iii_max - (ii + 1));
-        }
+        if (count > n)
+            break;
+        answer += a.at(i);
+        count++;
     }
 
     cout << answer << endl;
