@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+using ll = long long;
+const ll MOD=1e9+7;
+const long long INF = 1LL<<60;
+
+
+ll judge(int N, int W, int K, int V, vector<int> input, vector<int> output){
+    ll score = 0l;
+    for (int i = 0; i < N;i++){
+        bool finish = false;
+        vector<int> total(K, 0);
+        for (int j = 0; j < W;j++){
+            if()
+
+        }
+    }
+}
+
+    // score = 0
+    // for row in range(tc.N // tc.W):
+        // finish = False
+        // total = [0] * tc.K
+        // for col in range(tc.W):
+            if len(fields[col]) <= row:
+                finish = True
+                break
+            block = fields[col][row]
+            total[block.color] += block.value
+        if finish:
+            break
+        score += max(total)
+    return score
+
+
+if __name__ == '__main__':
+    if len(argv) < 3:
+        usage()
+        exit(1)
+    with open(argv[1]) as in_file:
+        tc = TestCase(input=in_file)
+    with open(argv[2]) as out_file:
+        output = []
+        for i, row in enumerate(out_file, start=1):
+            try:
+                output.append(int(row))
+            except Exception:
+                raise RuntimeError("[ERROR] %d行目 出力が不正です : %s" % (i, row))
+    score = judge(tc, output)
+    print("score:%d" % score)
+
+// 入出力のテスト
+int main() {
+    int N,M,K,V;
+    cin >> N >> M >> K >> V;
+    vector<int> c(N), v(N);
+    rep(i,N) cin >> c.at(i) >> v.at(i);
+
+    vector<int> col(N);
+    rep(i,N){
+        col.at(i) = 0;
+    }
+
+    rep(i,N){
+        cout << col.at(i) << endl;
+    }
+}

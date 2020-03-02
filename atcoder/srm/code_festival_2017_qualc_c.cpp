@@ -27,22 +27,33 @@ const long long INF = 1LL << 60;
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> l(n);
-    rep(i, n) cin >> l.at(i);
+    string s;
+    cin >> s;
 
-    sort(l.begin(), l.end());
-
-    int answer = 0;
-    for (int i = 0; i < n; i++)
+    string not_x = "";
+    for (int i = 0; i < int(s.size()); i++)
     {
-        for (int ii = i + 1; ii < n; ii++)
+        if (s.at(i) != 'x')
         {
-            int iii_max = lower_bound(l.begin(), l.end(), l.at(i) + l.at(ii)) - l.begin();
-            answer += max(0, iii_max - (ii + 1));
+            not_x += s.at(i);
         }
     }
 
-    cout << answer << endl;
+    bool is_ok = true;
+    for (int i = 0; i < int(not_x.size()) / 2; i++)
+    {
+        if (not_x.at(i) != not_x.at(int(not_x.size()) - 1 - i))
+        {
+            is_ok = false;
+            break;
+        }
+    }
+
+    if (is_ok == false)
+    {
+        cout << -1 << endl;
+        return 0;
+    }
+
+    return 0;
 }

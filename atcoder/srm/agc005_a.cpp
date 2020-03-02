@@ -27,22 +27,17 @@ const long long INF = 1LL << 60;
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> l(n);
-    rep(i, n) cin >> l.at(i);
+    string X;
+    cin >> X;
 
-    sort(l.begin(), l.end());
-
-    int answer = 0;
-    for (int i = 0; i < n; i++)
+    int max_t_index = -1;
+    for (int i = 0; i < int(X.size()); i++)
     {
-        for (int ii = i + 1; ii < n; ii++)
+        if (X.at(i) == 'T')
         {
-            int iii_max = lower_bound(l.begin(), l.end(), l.at(i) + l.at(ii)) - l.begin();
-            answer += max(0, iii_max - (ii + 1));
+            max_t_index = max(max_t_index, i);
         }
     }
 
-    cout << answer << endl;
+    cout << (int(X.size()) - (max_t_index + 1)) * 2 << endl;
 }

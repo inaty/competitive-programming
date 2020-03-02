@@ -8,8 +8,18 @@ const ll MOD=1e9+7;
 const long long INF = 1LL<<60;
 
 int main() {
-    int a, b, x;
-    cin >> a >> b >> x;
+    set<int> st;
+    for (int i = 1;i<=30;i++){
+        st.insert(i);
+    }
 
-    
+    for (int i = 0; i < 28;i++){
+        int a;
+        cin >> a;
+        st.erase(a);
+    }
+
+    for (auto itr = st.begin(); itr != st.end();itr++){
+        cout << *itr << endl;
+    }
 }
