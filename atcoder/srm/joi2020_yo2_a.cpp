@@ -19,6 +19,23 @@ vector<string> rotate_clockwise(vector<string> s, int n)
     return res;
 }
 
+vector<string> rotate_clockwise(vector<string> s, int n, int times)
+{
+    if (times == 0)
+    {
+        return s;
+    }
+    else
+    {
+        auto ret = s;
+        for (int i = 0; i < times; i++)
+        {
+            ret = rotate_clockwise(ret, n);
+        }
+        return ret;
+    }
+}
+
 // ポスターsをポスターtにするために塗りつぶすマスの数を計算する
 int count_fill_cells(vector<string> s, vector<string> t, int n)
 {
@@ -45,26 +62,14 @@ int main()
     rep(i, n) cin >> t.at(i);
 
     int answer = INT_MAX;
-    int temp_answer;
 
-    // 無回転でマス目の色を塗り返す場合
-    temp_answer = count_fill_cells(s, t, n);
-    answer = min(answer, temp_answer);
-
-    // 回転後のポスター
-    vector<string> rotate_s = s;
-
-    // 右回転してからマス目の色を塗り替える場合
-    temp_answer = 1 + count_fill_cells(rotate_clockwise(s, n), t, n);
-    answer = min(answer, temp_answer);
-
-    // 左回転してからマス目の色を塗り替える場合
-    temp_answer = 1 + count_fill_cells(rotate_clockwise(rotate_clockwise(rotate_clockwise(s, n), n), n), t, n); // 右に３回転で左に１回転した結果に合わせる
-    answer = min(answer, temp_answer);
-
-    // １８０度回転してからマス目の色を塗り替える場合
-    temp_answer = 2 + count_fill_cells(rotate_clockwise(rotate_clockwise(s, n), n), t, n); // 右に2回転で反転
-    answer = min(answer, temp_answer);
+    vector<int> additional_cost = {0, 1, 2, 1};
+    for (int rotate_time = 0; rotate_time < 4; rotate_time++)
+    {
+        auto s_rot = rotate_clockwise(s, n, rotate_time);
+        const int temp_answer = count_fill_cells(s_rot, t, n) + additional_cost.at(rotate_time);
+        answer = min(answer, temp_answer);
+    }
 
     cout << answer << endl;
 }
