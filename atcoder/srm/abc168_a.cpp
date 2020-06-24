@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+template <class T>
+inline bool chmin(T &a, T b)
+{
+    if (a > b)
+    {
+        a = b;
+        return true;
+    }
+    return false;
+}
+template <class T>
+inline bool chmax(T &a, T b)
+{
+    if (a < b)
+    {
+        a = b;
+        return true;
+    }
+    return false;
+}
+using ll = long long;
+const ll MOD = 1e9 + 7;
+const long long INF = 1LL << 60;
+
+int main()
+{
+    string n;
+    cin >> n;
+
+    if (n.at(n.size() - 1) == '3')
+    {
+        cout << "bon" << endl;
+    }
+    else if ((n.at(n.size() - 1) == '0') || (n.at(n.size() - 1) == '1') || (n.at(n.size() - 1) == '6') || (n.at(n.size() - 1) == '8'))
+    {
+        cout << "pon" << endl;
+    }
+    else
+    {
+        cout << "hon" << endl;
+    }
+}
